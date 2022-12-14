@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
@@ -9,20 +9,34 @@ const OrderingGuide = () => {
 // vanilla js section
 
 // useState section:
-const [items, setItems] = useState({
-  "itemName": "Bananas",
-  "category": "Produce",
-  "vendor": "Local Harvest",
-  "lbsCase": 40,
-});
+const [items, setItems] = useState([]);
 
   // for modal:
 const [show, setShow] = useState(false);
 
 // helper function section
+  // fetch request to backend:
+const getItems = async () => {
+  try {
+    const response = await fetch('http://localhost:3075/orderingGuide');
+    const jsonData = await response.json();
+      console.log(jsonData)
+    setItems(jsonData);
+  } catch (err) {
+    console.error(err.message)
+  }
+} 
+
   // for modal:
 const handleClose = () => setShow(false);
 const handleShow = () => setShow(true);
+
+
+// useEffect section for fetch request:
+useEffect(() => {
+  getItems();
+}, [])
+
 
 // jsx section:
   return (
@@ -62,16 +76,17 @@ const handleShow = () => setShow(true);
           </tr>
         </thead>
         <tbody>
-          <thead>Produce</thead>
-          <tr>
+          {items.map(item => (
+          <tr key={item.item_id}>
             <td>
               <input style={{width: "50px"}}></input>
             </td>
-            <td>{items.itemName}</td>
-            <td>{items.category}</td>
-            <td>{items.vendor}</td>
-            <td>{items.lbsCase}</td>
+            <td>{item.itemname}</td>
+            <td>{item.category}</td>
+            <td>{item.vendor}</td>
+            <td>{item.lbscase}</td>
           </tr>
+          ))}
         </tbody>
       </table>
 
