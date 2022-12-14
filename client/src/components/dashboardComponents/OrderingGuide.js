@@ -29,7 +29,7 @@ const handleShow = () => setShow(true);
     <div>
 
       <div className='title' style={{paddingBottom: '50px'}}>
-        <h2>OrderingGuide</h2>
+        <h2>Ordering Guide</h2>
       </div>
 
       {/* make add an item button:  use modal?*/}
@@ -62,6 +62,7 @@ const handleShow = () => setShow(true);
           </tr>
         </thead>
         <tbody>
+          <thead>Produce</thead>
           <tr>
             <td>
               <input style={{width: "50px"}}></input>

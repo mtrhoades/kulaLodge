@@ -21,7 +21,6 @@ app.get('/', (req, res) => {
 
 
 // controller route
-app.use('/users', require('./controllers/users'));
 app.use('/orderingGuide', require('./controllers/orderingGuide'));
 
 
