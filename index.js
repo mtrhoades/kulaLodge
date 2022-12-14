@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
 
 // controller route
 app.use('/users', require('./controllers/users'));
-app.use('/inventory', require('./controllers/inventory'));
+app.use('/orderingGuide', require('./controllers/orderingGuide'));
 
 
 // catch all route (error page)

@@ -23,47 +23,55 @@ const Dashboard = () => {
         </div>
 
         <div className='inventory' style={{paddingTop: '100px'}}>
-            <Button>
-                <Card style={{ width: '18rem', border: '1px solid', color: 'black'}}>
-                {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
-                <Card.Body>
-                    <Card.Title>Inventory</Card.Title>
-                </Card.Body>
-                </Card>
-            </Button>
+            <Link to='/Inventory'>
+                <Button>
+                    <Card style={{ width: '18rem', border: '1px solid', color: 'black'}}>
+                    {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
+                    <Card.Body>
+                        <Card.Title>Inventory</Card.Title>
+                    </Card.Body>
+                    </Card>
+                </Button>
+            </Link>
         </div>
 
         <div className='scheduling' style={{paddingTop: '100px'}}>
-            <Button>
-                <Card style={{ width: '18rem', border: '1px solid', color: 'black'}}>
-                {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
-                <Card.Body>
-                    <Card.Title>Employee Scheduling</Card.Title>
-                </Card.Body>
-                </Card>
-            </Button>
+            <Link to="/EmployeeScheduling">
+                <Button>
+                    <Card style={{ width: '18rem', border: '1px solid', color: 'black'}}>
+                    {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
+                    <Card.Body>
+                        <Card.Title>Employee Scheduling</Card.Title>
+                    </Card.Body>
+                    </Card>
+                </Button>
+            </Link>
         </div>
 
         <div className='menu' style={{paddingTop: '100px'}}>
-            <Button>
-                <Card style={{ width: '18rem', border: '1px solid', color: 'black'}}>
-                {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
-                <Card.Body>
-                    <Card.Title>Menu</Card.Title>
-                </Card.Body>
-                </Card>
-            </Button>
+            <Link to="/Menu">
+                <Button>
+                    <Card style={{ width: '18rem', border: '1px solid', color: 'black'}}>
+                    {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
+                    <Card.Body>
+                        <Card.Title>Menu</Card.Title>
+                    </Card.Body>
+                    </Card>
+                </Button>
+            </Link>
         </div>
 
         <div className='recipes' style={{paddingTop: '100px'}}>
-            <Button>
-                <Card style={{ width: '18rem', border: '1px solid', color: 'black'}}>
-                {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
-                <Card.Body>
-                    <Card.Title>Recipes</Card.Title>
-                </Card.Body>
-                </Card>
-            </Button>
+            <Link to="/Recipes">
+                <Button>
+                    <Card style={{ width: '18rem', border: '1px solid', color: 'black'}}>
+                    {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
+                    <Card.Body>
+                        <Card.Title>Recipes</Card.Title>
+                    </Card.Body>
+                    </Card>
+                </Button>
+            </Link>
         </div>
 
 
