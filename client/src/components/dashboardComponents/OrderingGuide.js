@@ -73,6 +73,7 @@ useEffect(() => {
             <th>Category</th>
             <th>Vendor</th>
             <th>lbs./Case</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -85,6 +86,9 @@ useEffect(() => {
             <td>{item.category}</td>
             <td>{item.vendor}</td>
             <td>{item.lbscase}</td>
+            <td>
+              <button type="button" className="btn closeBtn" aria-label="Close">&times;</button>
+            </td>
           </tr>
           ))}
         </tbody>

@@ -1,0 +1,11 @@
+.closeBtn {
+    color: gray;
+    font-size: 30px;
+    opacity: .5;
+}
+
+.closeBtn:hover {
+    color: red;
+    opacity: 1;
+}
+
