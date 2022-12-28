@@ -1,106 +1,64 @@
-import React, { useEffect } from 'react';
-import { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-
+import React from 'react';
+import { Link } from 'react-router-dom';
+import VIPLogo from '/home/matthew/Desktop/coding/my-sites/kulaLodge/client/src/images/VIPLogo.webp';
+import SyscoLogo from '/home/matthew/Desktop/coding/my-sites/kulaLodge/client/src/images/SyscoLogo.jpg';
+import LHLogo from '/home/matthew/Desktop/coding/my-sites/kulaLodge/client/src/images/LHLogo.jpg';
+import RimfireLogo from '/home/matthew/Desktop/coding/my-sites/kulaLodge/client/src/images/RimfireLogo.png';
 
 
 const OrderingGuide = () => {
-// vanilla js section
 
-// useState section:
-const [items, setItems] = useState([]);
+  const imgStyle = {width: '150px'}
+  const btnStyle = {border: 'none', backgroundColor: 'white'}
 
-  // for modal:
-const [show, setShow] = useState(false);
-
-// helper function section
-  // fetch request to backend:
-const getItems = async () => {
-  try {
-    const response = await fetch('http://localhost:3075/orderingGuide');
-    const jsonData = await response.json();
-      console.log(jsonData)
-    setItems(jsonData);
-  } catch (err) {
-    console.error(err.message)
-  }
-} 
-
-  // for modal:
-const handleClose = () => setShow(false);
-const handleShow = () => setShow(true);
-
-
-// useEffect section for fetch request:
-useEffect(() => {
-  getItems();
-}, [])
-
-
-// jsx section:
   return (
-    <div>
+    <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', paddingBottom: '50px'}}>
+      <h2 style={{paddingTop: '50px'}}>Vendors:</h2>
 
-      <div className='title' style={{paddingBottom: '50px'}}>
-        <h2>Ordering Guide</h2>
+      <div className='vip' style={{paddingTop: '100px'}}>
+        <Link to='/OrderingGuide/VIP'>
+            <button style={btnStyle}>
+              <img style={imgStyle} src={VIPLogo} alt="VIP Logo"></img>
+            </button>
+        </Link>
       </div>
 
-      {/* make add an item button:  use modal?*/}
-    <div className='addItemModal'>
-      <Button onClick={handleShow}>Add Item</Button>
-      
-      <Modal show={show} onHide={handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>Add Item</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>Insert Form here</Modal.Body>
-          <Modal.Footer>
-            <Button variant="primary" onClick={handleClose}>
-              Save Changes
-            </Button>
-          </Modal.Footer>
-        </Modal>
-    </div>
+      <div className='sysco' style={{paddingTop: '100px'}}>
+        <Link to='/OrderingGuide/Sysco'>
+            <button style={btnStyle}>
+              <img style={imgStyle} src={SyscoLogo} alt="Sysco Logo"></img>
+            </button>
+        </Link>
+      </div>
 
+      <div className='localHarvest' style={{paddingTop: '100px'}}>
+        <Link to='/OrderingGuide/LocalHarvest'>
+            <button style={btnStyle}>
+              <img style={imgStyle} src={LHLogo} alt="Local Harvest Logo"></img>
+              {/* ^ put image through a resizer to make slightly bigger to match */}
+            </button>
+        </Link>
+      </div>
 
-      {/* make listed out items in a table via category: */}
-      <table class="center table table-sm table-striped table-primary text-center">
-        <thead>
-          <tr>
-            <th>Order Amount</th>
-            <th>Item Name</th>
-            <th>Category</th>
-            <th>Vendor</th>
-            <th>lbs./Case</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          {items.map(item => (
-          <tr key={item.item_id}>
-            <td>
-              <input style={{width: "50px"}}></input>
-            </td>
-            <td>{item.itemname}</td>
-            <td>{item.category}</td>
-            <td>{item.vendor}</td>
-            <td>{item.lbscase}</td>
-            <td>
-              <button type="button" className="btn closeBtn" aria-label="Close">&times;</button>
-            </td>
-          </tr>
-          ))}
-        </tbody>
-      </table>
+      <div className='rainbow' style={{paddingTop: '100px'}}>
+        <Link to='/OrderingGuide/RainbowFarms'>
+            <button style={btnStyle}>
+              <h4>Rainbow Farms - Waipoli Greens</h4>
+              {/* <img style={imgStyle} src={VIPLogo} alt="Rainbow Farms Logo"></img> */}
+            </button>
+        </Link>
+      </div>
 
+      <div className='rimfire' style={{paddingTop: '100px'}}>
+        <Link to='/OrderingGuide/RimfireImports'>
+            <button style={btnStyle}>
+              <img style={imgStyle} src={RimfireLogo} alt="Rimfire Imports Logo"></img>
+            </button>
+        </Link>
+      </div>
 
-
-
-     {/* make edit and delete buttons: */}
 
     </div>
-
 
 
   )
